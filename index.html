@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Weather Dashboard</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="background">
+            <div class="container">
+                <h1 class="display-4" id="title-text">Weather Dashboard</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 card-background">
+                <div>
+                    <label for="citySearch" id="search-text">Search for a City:</label>
+                    <input type="text" id="citySearch">
+                    <button class="submit" id="searchBtn">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="white"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                            <path fill-rule="evenodd"
+                                d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                        </svg>
+                    </button>
+
+                </div>
+
+                <div class="card-body" id="city-history">
+                </div>
+
+            </div>
+
+            <div class="col-md-9 col-sm-12">
+                <div class="card" id="city-text">
+                    <h5 class="card-title" id="current-city"></h5>
+                    <p id="temp"></p>
+                    <p id="humidity"></p>
+                    <p id="wind"></p>
+                </div>
+
+                <div id="forecast-card">
+                    <h5 class="d-none" id="forecast">5 Day Forecast: </h5>
+                    <div class="row col-md-12">
+                        <div class="card forecast d-none" id="forecast0"></div>
+                        <div class="card forecast d-none" id="forecast1"></div>
+                        <div class="card forecast d-none" id="forecast2"></div>
+                        <div class="card forecast d-none" id="forecast3"></div>
+                        <div class="card forecast d-none" id="forecast4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="app.js"></script>
+
+</html>
