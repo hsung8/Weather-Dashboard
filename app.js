@@ -36,9 +36,19 @@ function searchWeather(city) {
         $.ajax({
             url: uvUrl,
             method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
             console.log(response.value)
-            $("#uv").html("UV Index: ").append(response.value);
+            var uvText = $("<span>");
+            uvText.html(response.value)
+
+            if (response.value <= 5) {
+                uvText.addClass("uv1");
+            } else if (response.value > 5 && response.value <= 9) {
+                uvText.addClass("uv2");
+            } else {
+                uvText.addClass("uv3");
+            }
+            $("#uv").html("UV Index: ").append(uvText);
         })
 
         //forecast
@@ -57,7 +67,7 @@ function searchWeather(city) {
                 $("#forecast" + i).removeClass("d-none");
 
                 weatherImg = 'https://openweathermap.org/img/wn/' + response.list[i].weather[0].icon + '@2x.png'
-                
+
                 $("<img>").attr("src", weatherImg).appendTo("#forecast" + i);
 
                 $("<p>").html("Temp: " + parseFloat(((response.list[i].main.temp) - 273.15) * 1.8 + 32).toFixed(2) + "<span>&deg</span> F").appendTo("#forecast" + i);
